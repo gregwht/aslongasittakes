@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>As Long As It Takes</title>
+  </head>
+
+
+  <body onload = "init();">
+
+    <h1>As Long As It Takes</h1>
+
+    <p>Brian can be found in Parliament Square Garden.</p>
+    <p>Please ensure location services are turned on so that Brian can find you.</p>
+    <h3> Your coordinates</h3>
+    <p id="coordinates">Fetching your location, please wait...</p>
+    <p id="parliament"></p>
+    <p id="zone"></p>
+    <p id="state"></p>
+    <p id="audio"></p>
+    <script src="js/main.js"></script>
+
+    <audio id="zoneAudioTag" src="" preload="auto" autoplay="true"></audio>
+    <audio id="walkAudioTag" src="" preload="auto" autoplay="true"></audio>
+
+    <button type="button" id="button" disabled="true" onclick="playAudio()">Visit Brian</button>
+
+  </body>
+</html>
