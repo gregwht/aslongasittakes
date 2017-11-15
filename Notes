@@ -1,56 +1,62 @@
 Notes
 
-1. The Square could be divided into several [zones] of about 10m². 
-- Either specify the bounds with <= and >=
-- Or determine distance from a centre point. If person is within x metres from point, choose from this pool. If not close enough to any pool, play transition sounds?
+DESIRED OUTCOME {
+	
+	The user visits the website on their phone. If they are not in Parliament Square, they are told to go there. If they are in Parliament Square, they are able to push a button which takes them through to a map of the square. This map will display zones which contain different audio fragments related to Brian. As the user walks around the square, different audio fragments are triggered.
+}
+
+POTENTIAL PROBLEMS {
+	
+	- GPS accuracy: it has been advised that the GPS is only accurate down to about 10m². Therefore we have moved away from placing specific audio fragments at specfic points in the Square, and towards larger 'zones' which contain a number of related audio fragments. A fragment is to be selected at random from the zone's bank of fragments when the user stops walking, or after a random number of seconds to give the illusion they have found something. At this point the user should stop walking and listen to the audio fragment. Once they begin walking again, the audio should fade into more foley-like recordings from the archive.
+		- What happens if GPS drops out? There shouldn't be silence, but the soundtrack should keep playing in some form.
+		- Alternatively, a different approach could be taken. When the user enters Parliament Square and this is verified by the GPS coordinates, the user is given a single, long audio file. This audio file could be edited to make it appear as though the user is discovering these audio fragments, when in reality they are in a fixed order. Several alternate versions of the long audio file could be created to give different people varying experiences.
+
+	- iOS audio: may require user action to enable audio to be heard. This could be tied to the button press that takes the user through to the map of the square.
+
+	- Hosting: unsure where or how to host the site & audio files. Current idea is Amazon Web Services as it seems good at scaling in response to demand (the Square might be busy some days but not others).
+
+	- Audio playback stability: Is it possible to cache audio so that playback is smooth? Or will it stream fine on 3G? What is the signal like in Parliament Square?
+}
 
 
-2. When the participant enters one of these [zones] and [stands still], one of several [zone audio] files plays.
-- If {person is in zone} and {speed is less than ~1-0.5mph}
-- Then determine what audio file to play
-- Fade from current audio to new audio
+USEFUL INFO {
+	
+	- Parliament Square coordinates (roughly)
+		- Latitude: 51.500 to 51.502
+		- Longitude: -0.1276 to -0.1261
+
+}
 
 
-3. When the participant begins [moving] again, there could be a [fade] into a [walking audio] which would then transition out to a new [zone audio] from the zone's selection.
-- If {speed is greater than ~1-0.5mph}
-- Then fade from current sound into transition audio
+
+CURRENT APPROACH {
+
+	1. Divide Parliament Square into several [zones] of about 10m² or larger. 
+
+	2. When the participant enters one of these [zones] and [stands still], one of several [zone audio] files plays.
+	- If {person is in zone} and {speed is less than ~1-0.5mph}
+	- Then determine what audio file to play
+	- Fade from current audio to new audio
+
+	3. When the participant begins [moving] again, there could be a [fade] into a [walking audio] which would then transition out to a new [zone audio] from the zone's selection.
+	- If {speed is greater than ~1-0.5mph}
+	- Then fade from current sound into transition audio
+
+}
 
 
 STATES {
 
-- Standing still = zone audio
-- Transitioning = fading between zone and walking audio
-- Walking = walking audio
+	- Standing still = play zone audio
+	- Transitioning = fade between zone and walking audio
+	- Walking = play walking audio (foley)
 }
 
-VARIABLES {
 
-- Float: GPS Longitude
-- Float: GPS Latitude
-- Boolean: inParliamentSquare
-- Boolean: Zone 1 (occupied or not) (if GPS Long & Lat is within x and y)
-- Boolean: Zone 2 (occupied or not) (if GPS Long & Lat is within x and y)
-- Boolean: Zone 3 (occupied or not) (if GPS Long & Lat is within x and y)
-- Boolean: Zone 4 (occupied or not) (if GPS Long & Lat is within x and y)
-
-- Float: Speed: If speed >= 1 then walking = true.
-- Boolean: Walking (true or false)
-
-- Int: Audio File Number
-- File: Zone Audio Files
-- File: Walking Audio Files (or single track?)
-}
-
-QUESTIONS {
-	
-	- Where will the audio files be stored? Amazon Web Services?
-	- Where will the website be hosted? Amazon Web Services?
 
 TO DO {
 	
-	- Crossfade between walking and zone audio //?
+	- Crossfade between walking and zone audio?
 	- System to keep track of what audio files have been played so they don't keep coming up from random rolls
-	- Make another audio clip play after current one ends? Or do we leave it so that people are forced to move on?
-}
-
+	- Make another audio clip play automatically after current one ends? Or do we leave it so that people are forced to move on?
 }
