@@ -15,13 +15,17 @@ var zoneData = [{
         lat2: 51.5009,
         long1: -0.1276,
         long2: -0.1268,
-        audio: ["1_Testing.mp3",
-            "2_EnteringMoL.mp3",
-            "3_Sound_Squeak.mp3",
-            "4_Spot_The_Terrorist.mp3",
-            "5_Meeting_Brian.mp3",
-            "6_Brian_Introduces_Himself.mp3",
-            "7_Brian_I'm_An_Old_Man.mp3"
+
+        // Testing .wav files
+        audio: ["BH Object All Gods Children.mp3",
+            "BH Object Brian Haw v1.mp3",
+            "BH Object Church Sign v1.mp3",
+            "BH Object Hansard Laminated Files v1.mp3",
+            "BH Object Megaphone v1.mp3",
+            "BH Object Photo of Brian wearing Bliar T-shirt.mp3",
+            "BH Object Poem by Michael Culver v1.mp3",
+            "BH Object Regulations v1.mp3",
+            "BH Object Straw Blair Brown v1.mp3"
         ]
 
     },
@@ -62,13 +66,15 @@ var zoneData = [{
         lat2: 51.5020,
         long1: -0.1267,
         long2: -0.1261,
-        audio: ["1_Testing.mp3",
-            "2_EnteringMoL.mp3",
-            "3_Sound_Squeak.mp3",
-            "4_Spot_The_Terrorist.mp3",
-            "5_Meeting_Brian.mp3",
-            "6_Brian_Introduces_Himself.mp3",
-            "7_Brian_I'm_An_Old_Man.mp3"
+        audio: ["BH Object All Gods Children.mp3",
+            "BH Object Brian Haw v1.mp3",
+            "BH Object Church Sign v1.mp3",
+            "BH Object Hansard Laminated Files v1.mp3",
+            "BH Object Megaphone v1.mp3",
+            "BH Object Photo of Brian wearing Bliar T-shirt.mp3",
+            "BH Object Poem by Michael Culver v1.mp3",
+            "BH Object Regulations v1.mp3",
+            "BH Object Straw Blair Brown v1.mp3"
         ]
     }
 ]
